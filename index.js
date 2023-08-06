@@ -2,6 +2,13 @@
 //Використовуйте оператор залишку від ділення для визначення, чи є число парним.
 
 function isEvenNumber(num) {
+  let result = num % 2;
+  if(result === 0) {
+      console.log(true)
+  } else {
+      console.log(false)
+  }
+  return num;
   // Перевірити, чи число num є парним
   // Повернути результат перевірки (true або false) як результат функції
 }
@@ -13,11 +20,22 @@ console.log("isEvenNumber(7)", isEvenNumber(7)); // Виведе: false
 // Задача 2: Напишіть функцію, яка обчислює суму чисел від 1 до заданого числа. Використовуйте цикл для послідовного додавання чисел.
 
 function calculateSum(n) {
+  let sum = 0;
+
+  for (let i = 1; i <= n; i++) {
+          if (i === 0) {
+              continue;
+          }
+          sum += i;
+  }
+  console.log(sum);
+  return n;
   // Ініціалізувати змінну sum зі значенням 0
   // Запустити цикл для змінної i від 1 до n
   // Додати поточне значення i до змінної sum
   // Повернути значення змінної sum
 }
+
 
 console.log("Завдання 2 ====================================");
 console.log("calculateSum(5)", calculateSum(5)); // Виведе: 15
