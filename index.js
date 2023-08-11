@@ -4,11 +4,11 @@
 function isEvenNumber(num) {
   let result = num % 2;
   if(result === 0) {
-      console.log(true)
+      return true;
   } else {
-      console.log(false)
+      return false;
   }
-  return num;
+  
   // Перевірити, чи число num є парним
   // Повернути результат перевірки (true або false) як результат функції
 }
@@ -28,8 +28,7 @@ function calculateSum(n) {
           }
           sum += i;
   }
-  console.log(sum);
-  return n;
+  return sum;
   // Ініціалізувати змінну sum зі значенням 0
   // Запустити цикл для змінної i від 1 до n
   // Додати поточне значення i до змінної sum
@@ -46,17 +45,18 @@ console.log("calculateSum(10)", calculateSum(10)); // Виведе: 55
 function isPrimeNumber(num) {
     if(num <= 1) {
       console.log(false);
-    } if(num > 1) {    
+    } else if(num > 1) {    
         for (let i = 2; i < num; i++) {
         num = num % i;   
-        if(num === 0); {
-      console.log(true);
-      i += 1;
+        if(num === 0) {
+          
+      return false;
+      
       } if(num !== 0) {
-        console.log(false);
+        return true;
       };
+      i += 1;
     };
-    return num;
     }
   // Якщо число num менше або дорівнює 1, то воно не є простим, тому повертаємо false
   // В іншому випадку продовжуємо перевірку
@@ -74,10 +74,10 @@ console.log("isPrimeNumber(10)", isPrimeNumber(10)); // Виведе: false
 
 function isPositiveNumber(num) {
 
-    if(num < 0) {
-        console.log(true)
-    } if(num <= 0) {
-        console.log(false)
+    if(num > 0) {
+        return true;
+    } if(num < 0) {
+        return false;
     };
     return num;
   // Перевіряємо, чи число num більше 0
@@ -93,9 +93,9 @@ console.log("isPositiveNumber(-2)", isPositiveNumber(-2)); // Виведе: fals
 
 function isEmptyString(str) {
     if(str === '') {
-        console.log(true);
+        return true;
     } if(str !== '') {
-        console.log(false);
+        return false;
     };
     return str;
   // Перевіряємо, чи рядок str дорівнює пустому рядку ('')
@@ -112,7 +112,7 @@ console.log('isEmptyString("Hello")', isEmptyString("Hello")); // Виведе: 
 
 function checkDataType(value) {
     for (let i = 1; i < 5; i++) {
-        console.log(typeof value);
+        return typeof value;
         i +=1;
     };
     return value;
@@ -132,11 +132,11 @@ console.log("checkDataType(undefined)", checkDataType(undefined)); // Вивед
 
 function findMax(num1, num2) {
      if(num1 > num2) {
-        console.log(num1);
+        return num1;
     } if(num1 < num2) {
-        console.log(num2);
+        return num2;
     } if(num1 === num2) {
-        console.log(null);
+        return num2;
     };
   // Порівнюємо num1 та num2
   // Якщо num1 більше num2, то num1 є максимальним, тому повертаємо num1
@@ -155,11 +155,11 @@ console.log("findMax(7, 7)", findMax(7, 7)); // Виведе: 7
 
 function getUserStatus(age) {
      if(age < 18) {
-        console.log("Неповнолітній");
+        return "Неповнолітній";
     } if(age > 18 && age < 65) {
-        console.log("Дорослий");
+        return "Дорослий";
     } if(age >= 65) {
-        console.log("Пенсіонер");
+        return "Пенсіонер";
     };
   // Перевіряємо вік за допомогою умовних операторів
   // Якщо age менше 18, то користувач є "Неповнолітнім"
@@ -180,34 +180,35 @@ function getDayOfWeek(dayNumber) {
     switch (dayNumber) {
             case 1:
                 day = "Понеділок";
-            console.log(day);
+                return day;
             break;
             case 2:
                 day = "Вівторок";
-            console.log(day);
+                return day;
             break;
             case 3:
                 day = "Середа";
-            console.log(day);
+                return day;
             break;
             case 4:
                 day = "Четвер";
-            console.log(day);
+                return day;
             break;
             case 5:
                 day = "П'ятниця";
-            console.log(day);
+                return day;
             break;
             case 6:
                 day = "Субота";
-            console.log(day);
+                return day;
             break;
             case 7:
                 day = "Неділя";
-            console.log(day);
+                return day;
             break;
             default:
-            console.log("Невірний номер дня");
+              day = "Невірний номер дня";
+              return day;
            
     }
   // Використовуємо оператор switch для знаходження назви дня тижня залежно від dayNumber
@@ -272,9 +273,7 @@ console.log("factorial(10)", factorial(10)); // Виведе: 3628800
 
 // Задача 12: створити функцію `makeAdder`, яка приймає число `x` і повертає нову функцію, що приймає число `y` і повертає суму `x` та `y`.
 function makeAdder(x) {
-  return (y) => {
-    console.log(`${x + y}`)
-}
+  return (y) => `${x + y}`
   // Вертаємо нову функцію, яка приймає `y`
   // Сумуємо `x` та `y` і повертаємо результат
 }
@@ -298,9 +297,8 @@ console.log("multiply(5, 3)", multiply(5, 3)); // Виведе: 15
 // Задача 14: Задача: створити каріровану функцію `divide`, яка може бути викликана як `divide(x)(y)`, щоб отримати результат ділення `x` на `y`.
 
 function divide(x) {
-  return (y) => {
-    console.log(`${x / y}`)
-}
+  return (y) => `${x / y}`;
+
   // Повертаємо нову функцію, яка приймає `y`
   // Ділимо `x` на `y` і повертаємо результат
 }
